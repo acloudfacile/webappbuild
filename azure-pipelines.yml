@@ -13,7 +13,7 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '6.x'  # Ensure this is the correct .NET SDK version
+    version: '8.x'  # Ensure this is the correct .NET SDK version
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages'
@@ -40,7 +40,7 @@ steps:
     projects: '**/WebTest.csproj'
     arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
-- task: PublishCodeCoverageResults@1
+- task: PublishCodeCoverageResults@2
   displayName: 'Publish Code Coverage Results'
   inputs:
     codeCoverageTool: 'Cobertura'
